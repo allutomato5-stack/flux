@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>FluxPay | Faster Pay • Higher Earnings</title>
+
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1380353874023808'); 
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1380353874023808&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+
+    <style>
+        :root {
+            --flux-cyan: #00d2ff;
+            --flux-blue: #0066ff;
+            --flux-purple: #9b51e0;
+            --flux-violet: #7000ff;
+            --bg-deep: #030108;
+            --text-main: #ffffff;
+            --text-sub: #8e9bb0;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+            background-color: var(--bg-deep);
+            background-image: 
+                radial-gradient(at 10% 10%, rgba(112, 0, 255, 0.45) 0%, transparent 50%),
+                radial-gradient(at 90% 20%, rgba(0, 210, 255, 0.35) 0%, transparent 45%),
+                radial-gradient(at 50% 90%, rgba(3, 1, 8, 1) 0%, transparent 100%);
+            color: var(--text-main);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .page-wrapper {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px 0;
+            box-sizing: border-box;
+        }
+
+        .flux-card {
+            background: linear-gradient(145deg, rgba(16, 8, 28, 0.92) 0%, rgba(6, 3, 14, 0.98) 100%);
+            width: 90%;
+            max-width: 400px;
+            padding: 40px 24px;
+            border-radius: 36px;
+            text-align: center;
+            border: 1px solid rgba(0, 210, 255, 0.25);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9), 
+                        0 0 35px rgba(112, 0, 255, 0.25),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            position: relative;
+            box-sizing: border-box;
+        }
+
+        /* Profile Neon Dual-Ring Frame */
+        .profile-container {
+            position: relative;
+            width: 135px;
+            height: 135px;
+            margin: 0 auto 20px auto;
+            border-radius: 50%;
+            padding: 3px;
+            background: linear-gradient(135deg, var(--flux-purple) 0%, var(--flux-cyan) 100%);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), 0 0 25px rgba(0, 210, 255, 0.4);
+            box-sizing: border-box;
+        }
+
+        .avatar-img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            display: block;
+            background: #000000;
+        }
+
+        .verified-badge {
+            position: absolute;
+            bottom: 4px;
+            right: 4px;
+            width: 26px;
+            height: 26px;
+            background: #00d2ff;
+            border-radius: 50%;
+            border: 2.5px solid #06030e;
+            z-index: 3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 10px rgba(0, 210, 255, 0.7);
+        }
+        .verified-badge svg { width: 13px; height: 13px; fill: #000000; }
+
+        .network-tag {
+            display: inline-block;
+            background: linear-gradient(90deg, rgba(155, 81, 224, 0.15) 0%, rgba(0, 210, 255, 0.15) 100%);
+            color: var(--flux-cyan);
+            border: 1px solid rgba(0, 210, 255, 0.4);
+            padding: 5px 16px;
+            border-radius: 50px;
+            font-size: 10px;
+            font-weight: 800;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .brand-title {
+            font-size: 32px;
+            font-weight: 900;
+            margin: 0 0 6px 0;
+            letter-spacing: -0.5px;
+            text-transform: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .title-white { color: #ffffff; }
+        .title-gradient {
+            background: linear-gradient(135deg, #00d2ff 0%, #7000ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .sub-tagline {
+            font-size: 11px;
+            color: var(--text-sub);
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 25px;
+        }
+        .sub-tagline span { color: var(--flux-cyan); }
+
+        /* Feature Stacks */
+        .feature-stack {
+            background: rgba(8, 4, 18, 0.65);
+            padding: 20px 18px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(112, 0, 255, 0.25);
+            border-left: 4px solid var(--flux-cyan);
+            text-align: left;
+        }
+
+        .feature-stack p {
+            margin: 12px 0;
+            font-size: 14px;
+            font-weight: 700;
+            color: #e2e8f0;
+            display: flex;
+            align-items: center;
+        }
+        .feature-stack p:first-child { margin-top: 0; }
+        .feature-stack p:last-child { margin-bottom: 0; }
+
+        .feature-stack span {
+            color: var(--flux-cyan);
+            margin-right: 12px;
+            font-size: 15px;
+            text-shadow: 0 0 8px rgba(0, 210, 255, 0.6);
+        }
+
+        /* Rounded Pill High-Converting CTA Button */
+        .cta-flux-btn {
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            gap: 12px !important;
+            width: 100%;
+            padding: 18px 0;
+            background: linear-gradient(90deg, #7000ff 0%, #0066ff 50%, #00d2ff 100%) !important;
+            color: #ffffff !important;
+            text-decoration: none !important;
+            border-radius: 50px !important;
+            font-size: 18px !important;
+            font-weight: 900 !important;
+            text-transform: uppercase !important;
+            letter-spacing: 1px !important;
+            border: none !important;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 12px 30px rgba(0, 210, 255, 0.35), 
+                        inset 0 2px 6px rgba(255, 255, 255, 0.35);
+            box-sizing: border-box;
+            transition: transform 0.1s ease;
+        }
+
+        .tg-icon {
+            width: 24px;
+            height: 24px;
+            fill: #ffffff;
+            display: inline-block;
+            flex-shrink: 0;
+        }
+
+        /* Shine Sheen Animation */
+        .cta-flux-btn::after {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transform: skewX(-25deg);
+            animation: interactiveShine 4s infinite ease-in-out;
+        }
+
+        @keyframes interactiveShine {
+            0% { left: -100%; }
+            15% { left: 120%; }
+            100% { left: 120%; }
+        }
+
+        .cta-flux-btn:active {
+            transform: scale(0.97);
+        }
+
+        .guarantee {
+            margin-top: 25px;
+            font-size: 11px;
+            color: var(--text-sub);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            line-height: 1.5;
+        }
+        .guarantee strong {
+            color: var(--flux-cyan);
+            letter-spacing: 1.5px;
+        }
+
+        /* Small Screen Fitting */
+        @media (max-height: 650px) {
+            .flux-card { padding: 25px 20px; }
+            .profile-container { width: 105px; height: 105px; margin-bottom: 15px; }
+            .brand-title { font-size: 26px; }
+            .feature-stack { margin-bottom: 20px; padding: 12px 15px; }
+            .cta-flux-btn { padding: 15px 0; font-size: 16px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="page-wrapper">
+        <div class="flux-card">
+            
+            <!-- Dual Neon Profile Ring Frame -->
+            <div class="profile-container">
+                <img src="https://i.ibb.co/84DCdhZB/image.jpg" alt="FluxPay Logo" class="avatar-img">
+                <div class="verified-badge">
+                    <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                </div>
+            </div>
+            
+            <div class="network-tag">Verified Partner Network</div>
+            
+            <h1 class="brand-title">
+                <span class="title-white">Flux</span><span class="title-gradient">Pay</span>
+            </h1>
+            <div class="sub-tagline">Faster Pay <span>•</span> Higher Earnings</div>
+            
+            <!-- Value Stack -->
+            <div class="feature-stack">
+                <p><span>⚡</span> Instant Panel Work Onboarding</p>
+                <p><span>⚡</span> Automated High-Speed Payouts</p>
+                <p><span>⚡</span> Real-Time Analytics & High Margins</p>
+                <p><span>⚡</span> 24/7 Priority Manager Support</p>
+            </div>
+
+            <!-- Instant Redirection Trigger Button -->
+            <button class="cta-flux-btn" id="cta-trigger-flux">
+                <svg class="tg-icon" viewBox="0 0 24 24">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-1-.65-.35-1 .22-1.62.15-.15 2.71-2.48 2.76-2.7.01-.03.01-.14-.05-.2-.06-.06-.14-.04-.2-.03-.08.01-1.29.82-3.65 2.42-.35.24-.66.36-.94.35-.31-.01-.91-.18-1.36-.32-.55-.18-1-.28-.96-.59.02-.16.24-.33.66-.51 2.58-1.12 4.31-1.87 5.17-2.23 2.46-1 2.97-1.17 3.31-1.18.07 0 .24.02.35.11.09.08.12.18.13.26 0 .05.01.18 0 .27z"/>
+                </svg>
+                JOIN TELEGRAM
+            </button>
+
+            <p class="guarantee"><strong>FASTER PAY • HIGHER EARNINGS</strong><br>Tap to connect directly for panel work</p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('cta-trigger-flux').onclick = function() {
+            // 1. Instant Pixel Subscribe Attribution
+            if (typeof fbq !== 'undefined') {
+                fbq('track', 'Subscribe');
+            }
+
+            // 2. Direct string redirect to https://t.me/flux_islive?text=Hello%20sir%2C%20I%20want%20panel%20work
+            const targetUrl = "https://t.me/flux_islive?text=Hello%20sir%2C%20I%20want%20panel%20work";
+            
+            // 3. Absolute Instant Redirect Execution (Zero Delays)
+            window.location.href = targetUrl;
+        };
+    </script>
+
+</body>
+</html>
